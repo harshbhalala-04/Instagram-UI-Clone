@@ -219,7 +219,7 @@ fun FooterUserData(reel: Reel, modifier: Modifier) {
             })
             Spacer(modifier = Modifier.width(horizontalPadding))
             Text(
-                text = "Audio asli",
+                text = "Audio",
                 color = Color.White
             )
         }

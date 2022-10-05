@@ -50,7 +50,7 @@ fun ProfileScreen() {
 
     Column (modifier = Modifier.fillMaxSize()){
         TopBar(
-            name = "philipplackner_official",
+            name = "bully_maguire",
             modifier = Modifier
                 .padding(10.dp)
         )
@@ -277,12 +277,10 @@ fun ProfileSection(
             StatSection(modifier = Modifier.weight(7f))
         }
         ProfileDescription(
-            displayName = "Programming Mentor",
-            description = "10 years of coding experience\n" +
-                    "Want me to make your app? Send me an email!\n" +
-                    "Subscribe to my YouTube channel!",
-            url = "https://youtube.com/c/PhilippLackner",
-            followedBy = listOf("codinginflow", "miakhalifa"),
+            displayName = "Bully Maguire",
+            description = "Have a look at my portfolio",
+            url = "https://my-portfolio-rahul2570089.vercel.app/",
+            followedBy = listOf("Modi", "Sleepy Joe"),
             otherCount = 17
         )
     }
