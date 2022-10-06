@@ -1,6 +1,5 @@
-package com.synac.instagramuipractice.main_feed_screen
+package com.synac.instagramuipractice.chat_screen
 
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -18,49 +17,44 @@ import androidx.compose.ui.unit.sp
 import com.synac.instagramuipractice.R
 
 @Composable
-fun TopBar() {
-
-    val instagramTitleFont = FontFamily(
-        Font(R.font.instagram_logo_font)
-    )
+fun ChatTopBar() {
 
     TopAppBar(
-
-        title = {
-            Text(
-                modifier = Modifier.offset(y = 5.dp),
-                text = "Instagram",
-                fontFamily = instagramTitleFont,
-                fontSize = 35.sp,
-                color = Color.Black
-            )
-        },
         backgroundColor = Color.White,
-        elevation = 2.dp,
+        navigationIcon = {
+             IconButton(onClick = {}) {
+                 Icon(
+                     painter = painterResource(id = R.drawable.ic_baseline_arrow_back_24),
+                     contentDescription = "Back Button"
+                 )
+             }
+        },
+        title = {
+          Text("harsh_bhalala04", fontSize = 20.sp)
+        },
         actions = {
             IconButton(onClick = { /*TODO*/ }) {
                 Icon(
-                    painter = painterResource(id = R.drawable.ic_add),
-                    contentDescription = "Add Post",
                     tint = Color.Black,
-                    modifier = Modifier.size(25.dp)
+                    painter = painterResource(id = R.drawable.ic_baseline_video_call_24),
+                    contentDescription = "video call",
+                    modifier = Modifier.size(30.dp)
                 )
             }
             IconButton(onClick = { /*TODO*/ }) {
                 Icon(
-                    painter = painterResource(id = R.drawable.ic_send),
-                    contentDescription = "Send Message",
                     tint = Color.Black,
-                    modifier = Modifier.size(25.dp)
+                    painter = painterResource(id = R.drawable.ic_baseline_add),
+                    contentDescription = "Add to chat",
+                    modifier = Modifier.size(30.dp)
                 )
             }
         }
     )
 }
 
-
 @Preview(showBackground = true)
 @Composable
-fun TopBarPreview() {
-    TopBar()
+fun ChatTopBarPreview() {
+    ChatTopBar()
 }

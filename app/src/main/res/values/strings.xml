@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">InstagramUI Practice</string>
+    <string name="title_activity_chat_screen">ChatScreen</string>
 </resources>
