@@ -12,17 +12,21 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.synac.instagramuipractice.R
+import com.synac.instagramuipractice.Screen
 
 // bottom bar where you can see icons to navigate to different part of the app.
 @Composable
-fun BottomBar() {
+fun BottomBar(navController: NavController) {
     BottomAppBar(
         backgroundColor = Color.White
     ) {
         BottomNavigationItem(
             selected = true,
-            onClick = {},
+            onClick = {
+                      navController.navigate(Screen.MainFeedScreen.route)
+            },
             icon = {
                 Icon(
                     painter = painterResource(R.drawable.ic_home_filled),
@@ -46,7 +50,9 @@ fun BottomBar() {
         )
         BottomNavigationItem(
             selected = false,
-            onClick = { },
+            onClick = {
+                      navController.navigate(Screen.ReelsView.route)
+            },
             icon = {
                 Icon(
                     painter = painterResource(R.drawable.ic_reels_outline),
@@ -70,7 +76,9 @@ fun BottomBar() {
         )
         BottomNavigationItem(
             selected = false,
-            onClick = { },
+            onClick = {
+                      navController.navigate(Screen.ProfileScreen.route)
+            },
             icon = {
                 Image(
                     painter = painterResource(R.drawable.jon_snow),

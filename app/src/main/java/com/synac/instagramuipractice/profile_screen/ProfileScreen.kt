@@ -9,10 +9,7 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Icon
-import androidx.compose.material.Tab
-import androidx.compose.material.TabRow
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.KeyboardArrowDown
@@ -37,13 +34,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.synac.instagramuipractice.R
 import com.synac.instagramuipractice.main_feed_screen.TopBar
 
 
 @ExperimentalFoundationApi
 @Composable
-fun ProfileScreen() {
+fun ProfileScreen(navController: NavController) {
     var selectedTabIndex by remember {
         mutableStateOf(0)
     }
@@ -52,7 +50,8 @@ fun ProfileScreen() {
         TopBar(
             name = "bully_maguire",
             modifier = Modifier
-                .padding(10.dp)
+                .padding(10.dp),
+            navController = navController
         )
         Spacer(modifier = Modifier.height(4.dp))
         ProfileSection()
@@ -125,7 +124,8 @@ fun ProfileScreen() {
 @Composable
 fun TopBar(
     name: String,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    navController: NavController
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -133,12 +133,16 @@ fun TopBar(
         modifier = modifier
             .fillMaxWidth()
     ) {
-        Icon(
-            imageVector = Icons.Default.ArrowBack,
-            contentDescription = "Back",
-            tint = Color.Black,
-            modifier = Modifier.size(24.dp)
-        )
+        IconButton(onClick = {
+            navController.navigateUp()
+        }) {
+            Icon(
+                imageVector = Icons.Default.ArrowBack,
+                contentDescription = "Back",
+                tint = Color.Black,
+                modifier = Modifier.size(24.dp)
+            )
+        }
         Text(
             text = name,
             overflow = TextOverflow.Ellipsis,
@@ -341,15 +345,21 @@ fun ButtonSection(
         ActionButton(
             text = "Following",
             icon = Icons.Default.KeyboardArrowDown,
-            modifier = Modifier.defaultMinSize(minWidth = minWidth).height(height)
+            modifier = Modifier
+                .defaultMinSize(minWidth = minWidth)
+                .height(height)
         )
         ActionButton(
             text = "Message",
-            modifier = Modifier.defaultMinSize(minWidth = minWidth).height(height)
+            modifier = Modifier
+                .defaultMinSize(minWidth = minWidth)
+                .height(height)
         )
         ActionButton(
             text = "Email",
-            modifier = Modifier.defaultMinSize(minWidth = minWidth).height(height)
+            modifier = Modifier
+                .defaultMinSize(minWidth = minWidth)
+                .height(height)
         )
         ActionButton(
             icon = Icons.Default.KeyboardArrowDown,
@@ -387,11 +397,13 @@ fun ActionButton(
     Row(
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier.border(
-            width = 1.dp,
-            color = Color.LightGray,
-            shape = RoundedCornerShape(5.dp)
-        ).padding(6.dp)
+        modifier = Modifier
+            .border(
+                width = 1.dp,
+                color = Color.LightGray,
+                shape = RoundedCornerShape(5.dp)
+            )
+            .padding(6.dp)
     ) {
         if(text != null) {
             Text(

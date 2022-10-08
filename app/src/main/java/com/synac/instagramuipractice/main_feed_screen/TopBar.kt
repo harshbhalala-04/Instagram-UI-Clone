@@ -15,10 +15,12 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.synac.instagramuipractice.R
+import com.synac.instagramuipractice.Screen
 
 @Composable
-fun TopBar() {
+fun TopBar(navController: NavController) {
 
     val instagramTitleFont = FontFamily(
         Font(R.font.instagram_logo_font)
@@ -38,7 +40,7 @@ fun TopBar() {
         backgroundColor = Color.White,
         elevation = 2.dp,
         actions = {
-            IconButton(onClick = { /*TODO*/ }) {
+            IconButton(onClick = {  }) {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_add),
                     contentDescription = "Add Post",
@@ -46,7 +48,7 @@ fun TopBar() {
                     modifier = Modifier.size(25.dp)
                 )
             }
-            IconButton(onClick = { /*TODO*/ }) {
+            IconButton(onClick = { navController.navigate(Screen.ChatScreen.route) }) {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_send),
                     contentDescription = "Send Message",
@@ -59,8 +61,3 @@ fun TopBar() {
 }
 
 
-@Preview(showBackground = true)
-@Composable
-fun TopBarPreview() {
-    TopBar()
-}
