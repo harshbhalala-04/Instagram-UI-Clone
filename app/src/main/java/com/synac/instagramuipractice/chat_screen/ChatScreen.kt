@@ -20,13 +20,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.synac.instagramuipractice.R
 import com.synac.instagramuipractice.model.Message
 import com.synac.instagramuipractice.model.User
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun ChatScreen() {
+fun ChatScreen(navController: NavController) {
     val messages = listOf(
         Message(
             profilePic = painterResource(R.drawable.jon_snow),
@@ -91,7 +92,7 @@ fun ChatScreen() {
     )
     Scaffold(
         topBar  = {
-            ChatTopBar()
+            ChatTopBar(navController = navController)
         },
         backgroundColor = Color.White
     ) {

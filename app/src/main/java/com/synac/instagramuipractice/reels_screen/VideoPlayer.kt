@@ -46,7 +46,6 @@ fun VideoPlayer(uri: Uri) {
             hideController()
             useController = false
             resizeMode = AspectRatioFrameLayout.RESIZE_MODE_ZOOM
-
             player = exoPlayer
             layoutParams = FrameLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT)
         }

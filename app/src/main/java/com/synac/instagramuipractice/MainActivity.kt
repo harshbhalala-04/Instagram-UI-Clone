@@ -13,13 +13,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.synac.instagramuipractice.chat_screen.ChatScreen
 import com.synac.instagramuipractice.main_feed_screen.MainFeedScreen
 import com.synac.instagramuipractice.ui.theme.InstagramUIPracticeTheme
+import navigation
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             InstagramUIPracticeTheme {
-                MainFeedScreen()
+                navigation()
             }
         }
     }
