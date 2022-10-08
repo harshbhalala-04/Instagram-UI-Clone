@@ -18,7 +18,7 @@ object DummyData {
             id = 2,
             video = "food.mp4",
             userImage = "https://generated.photos/vue-static/home/hero/7.png",
-            userName = "Johnson",
+            userName = "Trump",
             isLiked = true,
             likesCount = 5923,
             commentsCount = 11,
