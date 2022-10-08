@@ -14,15 +14,18 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.synac.instagramuipractice.R
 
 @Composable
-fun ChatTopBar() {
+fun ChatTopBar(navController: NavController) {
 
     TopAppBar(
         backgroundColor = Color.White,
         navigationIcon = {
-             IconButton(onClick = {}) {
+             IconButton(onClick = {
+                 navController.navigateUp()
+             }) {
                  Icon(
                      painter = painterResource(id = R.drawable.ic_baseline_arrow_back_24),
                      contentDescription = "Back Button"
@@ -53,8 +56,3 @@ fun ChatTopBar() {
     )
 }
 
-@Preview(showBackground = true)
-@Composable
-fun ChatTopBarPreview() {
-    ChatTopBar()
-}

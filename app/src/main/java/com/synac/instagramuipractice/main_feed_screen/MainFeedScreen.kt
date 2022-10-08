@@ -13,11 +13,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.synac.instagramuipractice.R
 import com.synac.instagramuipractice.model.User
 
 @Composable
-fun MainFeedScreen() {
+fun MainFeedScreen(navController: NavController) {
     //main feed screen ----- here are the code of different posts that you can see on the main screen.
     val users = listOf(
         User(
@@ -95,9 +96,9 @@ fun MainFeedScreen() {
     )
 
     Scaffold(
-        topBar = { TopBar() },
+        topBar = { TopBar(navController = navController) },
         backgroundColor = Color.White,
-        bottomBar = { BottomBar() }
+        bottomBar = { BottomBar(navController = navController) }
     ) { innerPadding ->
         LazyColumn(
             modifier = Modifier.padding(innerPadding)

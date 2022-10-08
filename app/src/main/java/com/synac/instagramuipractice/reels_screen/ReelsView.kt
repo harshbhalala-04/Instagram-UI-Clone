@@ -24,6 +24,7 @@ import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.skydoves.landscapist.glide.GlideImage
 import com.synac.instagramuipractice.reels_screen.DummyData
 import com.synac.instagramuipractice.reels_screen.Reel
@@ -35,7 +36,7 @@ val horizontalPadding = 10.dp
 
 
 @Composable
-fun ReelsView() {
+fun ReelsView(navController: NavController) {
     Box(Modifier.background(color = Color.Black)) {
         ReelsList()
         ReelsHeader()
